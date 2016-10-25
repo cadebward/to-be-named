@@ -2,7 +2,6 @@
 import jss from 'jss'
 import { includes, map } from 'lodash'
 import React from 'react'
-import Match from 'react-router/Match'
 
 import items from './items'
 
@@ -27,7 +26,7 @@ const styles = {
 
 const { classes } = jss.createStyleSheet(styles).attach()
 
-export default function Game({ buyItem, cash, inv }) {
+export default function Store({ buyItem, cash, inv }) {
   return (
     <div>
       <h2>Buy somethin good will ya?</h2>

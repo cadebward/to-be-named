@@ -2,8 +2,11 @@ import jss from 'jss'
 import React, { Component } from 'react'
 import Link from 'react-router/Link'
 import Match from 'react-router/Match'
+import Miss from 'react-router/Miss'
+import Redirect from 'react-router/Redirect'
 
 import Gear from './gear'
+import Login from './login'
 import Store from './store'
 import Noob from './noob'
 
@@ -41,17 +44,26 @@ export default class Game extends Component {
     const { cash, inv } = this.state
     return (
       <div>
-        <div className={classes.menu}>
-          <Link to="/">Home</Link>
-          <Link to="/store">Store</Link>
-          <Link to="/gear">Gear</Link>
-          <Link to="/noob">Noob</Link>
-          <div>Current Cash: {cash}</div>
-        </div>
-        <Match exactly pattern="/" component={Home} />
-        <Match exactly pattern="/store" render={() => <Store cash={cash} buyItem={this.buyItem} inv={inv} />} />
-        <Match exactly pattern="/gear" render={() => <Gear inv={inv} />} />
-        <Match exactly pattern="/noob" render={() => <Noob addOne={this.addOne} />} />
+        <Match exactly pattern="/login" component={Login} />
+        <Miss render={() => (
+          <Authenticated>
+            (user) => (
+              <div>
+                <div className={classes.menu}>
+                  <Link to="/">Home</Link>
+                  <Link to="/store">Store</Link>
+                  <Link to="/gear">Gear</Link>
+                  <Link to="/noob">Noob</Link>
+                  <div>Current Cash: {cash}</div>
+                </div>
+                <Match exactly pattern="/" component={Home} />
+                <Match exactly pattern="/store" render={() => <Store cash={cash} buyItem={this.buyItem} inv={inv} />} />
+                <Match exactly pattern="/gear" render={() => <Gear inv={inv} />} />
+                <Match exactly pattern="/noob" render={() => <Noob addOne={this.addOne} />} />
+              </div>
+            )
+          </Authenticated>
+        )} />
       </div>
     )
   }
@@ -60,4 +72,29 @@ export default class Game extends Component {
 
 function Home() {
   return <h2>Welcome to Hacker's Paradise!</h2>
+}
+
+class Authenticated extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = { loading: false, error: null, user: null }
+  }
+
+  componentDidMount() {
+    // TODO_CADE:: try and log in here
+    this.setState({ loading: true })
+    // if error:  this.setState({ loading: false, error: 'OH NOES' })
+    // if success:  this.setState({ lodaing: false, user: { name: 'bubba' } })
+    // if not logged in:  this.setState({ loading: false })
+  }
+
+  render() {
+    const { loading, error, user } = this.state
+    const { children } = this.props
+    if (loading) return <div>Loading...</div>
+    if (error) return <div>An unexpected error occurred. soz.</div>
+    if (user) return children(user)
+    return <Redirect to="/login" />
+  }
 }

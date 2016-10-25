@@ -1,5 +1,4 @@
 import React from 'react'
-import Match from 'react-router/Match'
 
 export default function Gear({ inv }) {
   const str = inv.length === 0 ? 'nothing' : inv.join(', ')
