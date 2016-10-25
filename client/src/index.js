@@ -1,8 +1,12 @@
+import jss from 'jss'
+import preset from 'jss-preset-default'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
+import Router from 'react-router/HashRouter'
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-)
+import Game from './game'
+
+jss.setup(preset())
+
+const el = document.getElementById('root')
+ReactDOM.render(<Router><Game /></Router>, el)
