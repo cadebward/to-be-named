@@ -7,7 +7,8 @@ import Redirect from 'react-router/Redirect'
 
 import Gear from './gear'
 import Login from './login'
-import Store from './store'
+// eslint-disable-next-line
+import Store from 'babel!cssx!./store.lol'
 import Noob from './noob'
 
 const styles = {
@@ -47,7 +48,7 @@ export default class Game extends Component {
         <Match exactly pattern="/login" component={Login} />
         <Miss render={() => (
           <Authenticated>
-            (user) => (
+            {(user) => (
               <div>
                 <div className={classes.menu}>
                   <Link to="/">Home</Link>
@@ -61,7 +62,7 @@ export default class Game extends Component {
                 <Match exactly pattern="/gear" render={() => <Gear inv={inv} />} />
                 <Match exactly pattern="/noob" render={() => <Noob addOne={this.addOne} />} />
               </div>
-            )
+            )}
           </Authenticated>
         )} />
       </div>
@@ -90,11 +91,12 @@ class Authenticated extends Component {
   }
 
   render() {
-    const { loading, error, user } = this.state
+    // const { loading, error, user } = this.state
     const { children } = this.props
-    if (loading) return <div>Loading...</div>
-    if (error) return <div>An unexpected error occurred. soz.</div>
-    if (user) return children(user)
-    return <Redirect to="/login" />
+    // if (loading) return <div>Loading...</div>
+    // if (error) return <div>An unexpected error occurred. soz.</div>
+    // if (user) return children(user)
+    // return <Redirect to="/login" />
+    return children({})
   }
 }

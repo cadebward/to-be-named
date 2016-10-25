@@ -1,28 +1,17 @@
-// import cssx from 'cssx'
 import jss from 'jss'
 import { includes, map } from 'lodash'
 import React from 'react'
 
 import items from './items'
 
-// Need a webpack loader for this :(
-
-// var sheet = cssx()
-
-// sheet.add(<style>
-//   .storeItem {
-//     display: flex;
-//   }
-// </style>)
-
-const styles = {
-  storeItem: {
-    display: 'flex',
-    padding: '20px',
-    'border-bottom': '1px solid',
-    'justify-content': 'space-between',
-  },
-}
+const styles = <style>
+  storeItem {
+    display: flex;
+    padding: 20px;
+    border-bottom: 1px solid;
+    justify-content: space-between;
+  }
+</style>
 
 const { classes } = jss.createStyleSheet(styles).attach()
 

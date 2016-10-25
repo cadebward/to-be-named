@@ -1544,6 +1544,16 @@ csso@~2.2.1:
   dependencies:
     cssom "0.3.x"
 
+cssx-loader:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/cssx-loader/-/cssx-loader-5.2.0.tgz#1231092aa2cb63b4d8613e621f44c1ffe5f647ca"
+  dependencies:
+    cssx-transpiler "5.2.0"
+
+cssx-transpiler@5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/cssx-transpiler/-/cssx-transpiler-5.2.0.tgz#a564dd3ccb7992c37a499b4bfd28e5e7e713f980"
+
 d@^0.1.1, d@~0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/d/-/d-0.1.1.tgz#da184c535d18d8ee7ba2aa229b914009fae11309"
