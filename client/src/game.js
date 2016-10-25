@@ -8,7 +8,8 @@ import Redirect from 'react-router/Redirect'
 
 import Gear from './gear'
 import Login from './login'
-import Store from './store'
+// eslint-disable-next-line
+import Store from 'babel!cssx!./store.lol'
 import Noob from './noob'
 
 const styles = {
@@ -93,11 +94,12 @@ class Authenticated extends Component {
   }
 
   render() {
-    const { loading, error, user } = this.state
+    // const { loading, error, user } = this.state
     const { children } = this.props
-    if (loading) return <div>Loading...</div>
-    if (error) return <div>An unexpected error occurred. soz.</div>
-    if (user) return children(user)
-    return <Redirect to="/login" />
+    // if (loading) return <div>Loading...</div>
+    // if (error) return <div>An unexpected error occurred. soz.</div>
+    // if (user) return children(user)
+    // return <Redirect to="/login" />
+    return children({})
   }
 }

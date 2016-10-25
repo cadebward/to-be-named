@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "axios": "^0.15.2",
+    "cssx-loader": "^5.2.0",
     "jss": "^5.5.5",
     "lodash": "^4.16.4",
     "react": "^15.3.2",
