@@ -1,3 +1,4 @@
+import axios from 'axios'
 import jss from 'jss'
 import React, { Component } from 'react'
 import Link from 'react-router/Link'
@@ -47,7 +48,7 @@ export default class Game extends Component {
         <Match exactly pattern="/login" component={Login} />
         <Miss render={() => (
           <Authenticated>
-            (user) => (
+            {(user) => (
               <div>
                 <div className={classes.menu}>
                   <Link to="/">Home</Link>
@@ -61,7 +62,7 @@ export default class Game extends Component {
                 <Match exactly pattern="/gear" render={() => <Gear inv={inv} />} />
                 <Match exactly pattern="/noob" render={() => <Noob addOne={this.addOne} />} />
               </div>
-            )
+            )}
           </Authenticated>
         )} />
       </div>
@@ -82,8 +83,10 @@ class Authenticated extends Component {
   }
 
   componentDidMount() {
-    // TODO_CADE:: try and log in here
     this.setState({ loading: true })
+    axios.get('/api/user')
+      .then((resp) => this.setState({ loading: false, user: resp.data }))
+      .catch(console.error)
     // if error:  this.setState({ loading: false, error: 'OH NOES' })
     // if success:  this.setState({ lodaing: false, user: { name: 'bubba' } })
     // if not logged in:  this.setState({ loading: false })

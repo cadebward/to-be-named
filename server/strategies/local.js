@@ -1,3 +1,4 @@
+import { find } from 'lodash'
 import { Strategy } from 'passport-local'
 
 const users = [
@@ -10,3 +11,9 @@ export default new Strategy((username, password, done) => {
   if (!user) return done(new Error('Authentication failed.'))
   return done(null, user)
 })
+
+export function deserialize(id, cb) {
+  const user = find(users, { id })
+  if (!user) return cb(new Error('Authentication failed.'))
+  cb(null, user)
+}

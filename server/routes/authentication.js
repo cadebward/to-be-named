@@ -1,10 +1,15 @@
 import passport from 'passport'
 
-const authenticationOptions = {
-  successRedirect: '/',
-  failureRedirect: '/login',
+module.exports = function(app) {
+  app.post('/login', passport.authenticate('local'), login)
+  app.get('/user', user)
 }
 
-module.exports = function(app) {
-  app.post('/login', passport.authenticate('local', authenticationOptions))
+function login(req, res) {
+  res.json(req.user)
+}
+
+function user(req, res) {
+  if (req.user) return res.json(req.user)
+  res.sendStatus(401)
 }

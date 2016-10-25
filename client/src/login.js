@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { Component } from 'react'
 
 export default class Game extends Component {
@@ -14,8 +15,13 @@ export default class Game extends Component {
   }
 
   login = () => {
-    // TODO_CADE:: work your login magic here
-    // redirect to / on success
+    const { username, password } = this.state
+    axios.post('/api/login', { username, password })
+      .then((resp) => {
+        console.log('got login suces')
+        window.location = '/'
+      })
+      .catch(console.error)
   }
 
   render() {

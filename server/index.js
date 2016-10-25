@@ -6,10 +6,14 @@ import logger from 'morgan'
 import path from 'path'
 import { each, filter } from 'lodash'
 import passport from 'passport'
+import cookieParser from 'cookie-parser'
+import session from 'express-session'
 
-import local from './strategies/local'
+import local, { deserialize } from './strategies/local'
 
 passport.use(local)
+passport.serializeUser((user, cb) => cb(null, user.id))
+passport.deserializeUser(deserialize)
 
 const app = express()
 const router = express.Router()
@@ -17,6 +21,8 @@ const router = express.Router()
 app.use(logger('dev'))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+app.use(cookieParser())
+app.use(session({ secret: '?', resave: false, saveUninitialized: false }))
 app.use(passport.initialize())
 app.use(passport.session())
 
