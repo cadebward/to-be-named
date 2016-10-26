@@ -1,7 +1,9 @@
+// import Login from 'cadal-client-login'
+// export default Login
+
 import axios from 'axios'
 import React, { Component } from 'react'
-
-export default class Game extends Component {
+export default class Login extends Component {
 
   constructor(props) {
     super(props)

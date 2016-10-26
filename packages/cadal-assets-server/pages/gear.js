@@ -1,6 +1,7 @@
 import React from 'react'
 
-export default function Gear({ inv }) {
+export default function Gear() {
+  const inv = []
   const str = inv.length === 0 ? 'nothing' : inv.join(', ')
   return (
     <div>

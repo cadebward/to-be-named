@@ -2,20 +2,23 @@ import jss from 'jss'
 import { includes, map } from 'lodash'
 import React from 'react'
 
-import items from './items'
+import items from '../common/items'
 
-const styles = <style>
-  storeItem {
-    display: flex;
-    padding: 20px;
-    border-bottom: 1px solid;
-    justify-content: space-between;
-  }
-</style>
+const styles = {
+  storeItem: {
+    display: 'flex',
+    padding: '20px',
+    'border-bottom': '1px solid',
+    'justify-content': 'space-between',
+  },
+}
 
 const { classes } = jss.createStyleSheet(styles).attach()
 
-export default function Store({ buyItem, cash, inv }) {
+export default function Store() {
+  const buyItem = () => null
+  const cash = 0
+  const inv = []
   return (
     <div>
       <h2>Buy somethin good will ya?</h2>

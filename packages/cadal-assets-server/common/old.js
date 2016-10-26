@@ -1,16 +1,6 @@
 import axios from 'axios'
 import jss from 'jss'
 import React, { Component } from 'react'
-import Link from 'react-router/Link'
-import Match from 'react-router/Match'
-import Miss from 'react-router/Miss'
-import Redirect from 'react-router/Redirect'
-
-import Gear from './gear'
-import Login from './login'
-// eslint-disable-next-line
-import Store from 'babel!cssx!./store.lol'
-import Noob from './noob'
 
 const styles = {
   menu: {
@@ -58,10 +48,6 @@ export default class Game extends Component {
                   <Link to="/noob">Noob</Link>
                   <div>Current Cash: {cash}</div>
                 </div>
-                <Match exactly pattern="/" component={Home} />
-                <Match exactly pattern="/store" render={() => <Store cash={cash} buyItem={this.buyItem} inv={inv} />} />
-                <Match exactly pattern="/gear" render={() => <Gear inv={inv} />} />
-                <Match exactly pattern="/noob" render={() => <Noob addOne={this.addOne} />} />
               </div>
             )}
           </Authenticated>
@@ -70,10 +56,6 @@ export default class Game extends Component {
     )
   }
 
-}
-
-function Home() {
-  return <h2>Welcome to Hacker's Paradise!</h2>
 }
 
 class Authenticated extends Component {
