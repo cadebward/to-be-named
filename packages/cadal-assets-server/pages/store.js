@@ -1,5 +1,4 @@
 import jss from 'jss'
-import { includes, map } from 'lodash'
 import React from 'react'
 
 import items from '../common/items'
@@ -22,13 +21,13 @@ export default function Store() {
   return (
     <div>
       <h2>Buy somethin good will ya?</h2>
-      {map(items, item => <StoreItem cash={cash} item={item} buyItem={buyItem} inv={inv} />)}
+      {items.map(item => <StoreItem cash={cash} item={item} buyItem={buyItem} inv={inv} />)}
     </div>
   )
 }
 
 function StoreItem({ buyItem, cash, item, inv }) {
-  const hasItem = includes(inv, item.key)
+  const hasItem = inv.includes(item.key)
   return (
     <div className={classes.storeItem}>
       <div>{item.title}</div>

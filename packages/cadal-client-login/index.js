@@ -1,20 +1,21 @@
-import axios from 'axios'
-import React, { Component } from 'react'
+const axios = require('axios')
 
-export default class Login extends Component {
+module.exports = (React) => class Login extends React.Component {
 
   constructor(props) {
     super(props)
     this.state = { username: '', password: '' }
+    this.login = this.login.bind(this)
+    this.update = this.update.bind(this)
   }
 
-  update = (key) => {
+  update(key) {
     return (e) => {
       this.setState({ [key]: e.target.value })
     }
   }
 
-  login = () => {
+  login() {
     const { username, password } = this.state
     axios.post('/api/login', { username, password })
       .then((resp) => {

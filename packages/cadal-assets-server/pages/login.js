@@ -1,43 +1,5 @@
-// import Login from 'cadal-client-login'
-// export default Login
+import React from 'react'
 
-import axios from 'axios'
-import React, { Component } from 'react'
-export default class Login extends Component {
+const Login = require('cadal-client-login')
 
-  constructor(props) {
-    super(props)
-    this.state = { username: '', password: '' }
-  }
-
-  update = (key) => {
-    return (e) => {
-      this.setState({ [key]: e.target.value })
-    }
-  }
-
-  login = () => {
-    const { username, password } = this.state
-    axios.post('/api/login', { username, password })
-      .then((resp) => {
-        console.log('got login suces')
-        window.location = '/'
-      })
-      .catch(console.error)
-  }
-
-  render() {
-    const { username, password } = this.state
-    return (
-      <div>
-        <h2>Login</h2>
-        <label>Username</label>
-        <input value={username} onChange={this.update('username')} type="text" />
-        <label>Password</label>
-        <input value={password} onChange={this.update('password')} type="password" />
-        <button onClick={this.login}>Login</button>
-      </div>
-    )
-  }
-
-}
+export default Login(React)
