@@ -2,7 +2,7 @@
   "scripts": {
     "build": "lerna bootstrap && lerna run build",
     "start": "npm run start:assets",
-    "start:assets": "cd packages/cadal-assets-server && npm start"
+    "start:assets": "cd packages/cadal-assets-server && npm run dev"
   },
   "devDependencies": {
     "babel-cli": "6.18.0",
