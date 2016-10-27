@@ -17,7 +17,7 @@ module.exports = (React) => class Login extends React.Component {
 
   login() {
     const { username, password } = this.state
-    axios.post('/api/login', { username, password })
+    axios.post('http://localhost:3001/api/login', { username, password })
       .then((resp) => {
         console.log('got login suces')
         window.location = '/'

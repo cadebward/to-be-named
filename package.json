@@ -1,7 +1,7 @@
 {
   "scripts": {
     "build": "lerna bootstrap && lerna run build",
-    "start": "npm run start:assets",
+    "start:api": "cd packages/cadal-api-server && npm start",
     "start:assets": "cd packages/cadal-assets-server && npm run dev"
   },
   "devDependencies": {

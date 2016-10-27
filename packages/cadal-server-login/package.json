@@ -1,0 +1,17 @@
+{
+  "name": "cadal-server-login",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Cade and Dallin",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.16.4",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  }
+}

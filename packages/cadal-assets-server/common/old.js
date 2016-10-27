@@ -67,7 +67,7 @@ class Authenticated extends Component {
 
   componentDidMount() {
     this.setState({ loading: true })
-    axios.get('/api/user')
+    axios.get('http://localhost:3001/api/user')
       .then((resp) => this.setState({ loading: false, user: resp.data }))
       .catch(console.error)
     // if error:  this.setState({ loading: false, error: 'OH NOES' })
