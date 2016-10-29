@@ -27,17 +27,17 @@ We're choosing new and exciting technologies, but we're going to stick with plai
 
 - nvm use
 - npm i
-- npm run build
-- npm run start:api
-- npm run start:assets
-- navigate to localhost:3000
+- npm run init
+- npm run watch
+- npm start
+- navigate to localhost:3001
 
 ## To Do
 
 - [ ] Evaluate Next.js
 - [ ] Evaluate Lerna
 - [ ] Set up a watch script in all the client projects
-- [ ] Evaluate Mobx
+- [ ] Evaluate Mobx https://www.youtube.com/watch?v=XGwuM_u7UeQ
 - [ ] What should we evaluate for styling/css?
 
 [lerna]: https://lernajs.io/

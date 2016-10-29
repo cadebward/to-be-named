@@ -14,6 +14,7 @@ const resources = [loginResource]
 const app = express()
 const router = express.Router()
 
+app.use(express.static('node_modules/cadal-client/src'))
 app.use(logger('dev'))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
