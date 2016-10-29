@@ -8,19 +8,14 @@ export default class Login extends Component {
     this.state = { username: '', password: '' }
   }
 
-  update = (key) => {
-    return (e) => {
-      this.setState({ [key]: e.target.value })
-    }
+  update = (key) => (e) => {
+    this.setState({ [key]: e.target.value })
   }
 
   login = () => {
     const { username, password } = this.state
     axios.post('/api/login', { username, password })
-      .then((resp) => {
-        console.log('got login suces')
-        window.location = '/'
-      })
+      .then((resp) => window.location = '/')
       .catch(console.error)
   }
 

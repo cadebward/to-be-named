@@ -1,16 +1,13 @@
 {
-  "name": "zz-next-client-login",
+  "name": "cadal-client-jobs",
   "version": "1.0.0",
   "description": "",
-  "main": "build/index.js",
+  "main": "index.js",
   "scripts": {
-    "old-build": "babel -d build/ index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Cade and Dallin",
   "license": "MIT",
-  "dependencies": {
-    "axios": "^0.15.2"
-  }
+  "dependencies": {}
 }
