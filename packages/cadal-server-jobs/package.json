@@ -1,0 +1,16 @@
+{
+  "name": "cadal-server-jobs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Cade and Dallin",
+  "license": "MIT",
+  "dependencies": {
+    "faker": "3.1.0",
+    "lodash": "4.16.4"
+  }
+}

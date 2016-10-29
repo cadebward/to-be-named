@@ -13,6 +13,7 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "cadal-client": "*",
+    "cadal-server-jobs": "*",
     "cadal-server-login": "*",
     "config": "^1.21.0",
     "cookie-parser": "1.4.3",
